@@ -1,0 +1,211 @@
+/* Importing fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Paprika&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic reset for margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer base {
+  html, body {
+    @apply h-full m-0;
+    scroll-behavior: smooth;
+  }
+  
+  #root {
+    @apply flex flex-col min-h-screen;
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  /* Global typography styles */
+  h1, h2, h3, h4, h5, h6, p, span {
+    @apply text-dark_primary;
+  }
+
+  h1 {
+    @apply font-Poppins lg:text-6xl text-3xl font-extrabold;
+  }
+
+  h2 {
+    @apply font-Inria text-5xl font-bold;
+  }
+
+  h3 {
+    @apply font-Paprika text-5xl;
+  }
+
+  h4 {
+    @apply md:text-4xl text-3xl !leading-relaxed font-Paprika;
+  }
+
+  h6 {
+    @apply font-Paprika font-bold text-[#253D57] leading-8;
+  }
+
+  p {
+    @apply font-Poppins text-[0.95rem];
+  }
+
+  button {
+    @apply font-Poppins;
+  }
+
+  input,
+  textarea {
+    @apply bg-transparent outline-none font-Poppins;
+  }
+
+  /* Reset global styles */
+  body {
+    font-family: Arial, sans-serif; /* Consistent font across the app */
+    line-height: 1.6;
+    background-color: #f4f4f4; /* From App.css */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  /* Placeholder styling */
+  ::placeholder {
+    @apply text-lg;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-cyan-600;
+  }
+}
+
+/* Container for the main app layout */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styling for the navbar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background-color: #234e7c;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .btn {
+    @apply py-2 px-9 border-2 rounded-md border-dark_primary rounded-br-3xl font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-cyan-600 font-semibold text-white md:mx-0 mx-auto rounded-full py-3 px-6 flex items-center gap-2;
+  }
+
+  .navbar {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .swiper-pagination-bullet {
+    @apply bg-white;
+  }
+
+  .aboutImg::after {
+    @apply content-[''] w-full left-0 top-0 rounded-xl rotate-12 h-full absolute bg-gray-600 -z-10;
+  }
+
+  input,
+  textarea {
+    @apply bg-gray-700 outline-none rounded-lg p-3;
+  }
+}
+
+/* Responsive Features */
+@media screen and (min-width: 768px) {
+  .navbar {
+    @apply px-6;
+  }
+
+  .btn-primary {
+    @apply mx-4;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .aboutImg::after {
+    @apply rotate-6;
+  }
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .btn-primary {
+    @apply px-4 py-2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    @apply px-4;
+  }
+
+  .btn-primary {
+    @apply px-3 py-2;
+  }
+
+  .aboutImg::after {
+    @apply rotate-0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    @apply px-12;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  .btn-primary {
+    @apply text-lg;
+  }
+}
+
+@media (color-gamut: srgb) {
+  body {
+    @apply text-gray-200;
+  }
+}
